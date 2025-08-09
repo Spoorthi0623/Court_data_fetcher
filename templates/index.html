@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Court Case Fetcher</title>
+</head>
+<body>
+    <h1>Fetch Court Case Details</h1>
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+    <form method="POST">
+        <label>Case Type:</label>
+        <select name="case_type" required>
+            <option value="CC">CC - Criminal Case</option>
+            <option value="MC">MC - Miscellaneous Case</option>
+            <option value="OS">OS - Original Suit</option>
+            <option value="SC">SC - Sessions Case</option>
+        </select><br><br>
+
+        <label>Case Number:</label>
+        <input type="text" name="case_number" required><br><br>
+
+        <label>Filing Year:</label>
+        <select name="filing_year" required>
+            {% for year in range(2015, 2026) %}
+                <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+        </select><br><br>
+
+        <button type="submit">Fetch Details</button>
+    </form>
+    <br>
+    <a href="/history">View Search History</a>
+</body>
+</html>
+

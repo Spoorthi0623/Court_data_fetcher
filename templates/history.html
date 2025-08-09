@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search History</title>
+</head>
+<body>
+    <h1>Previous Case Queries</h1>
+
+    {% if records %}
+        <table border="1">
+            <tr>
+                <th>Case Type</th>
+                <th>Case Number</th>
+                <th>Filing Year</th>
+                <th>Time Queried</th>
+            </tr>
+            {% for row in records %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No search history available.</p>
+    {% endif %}
+
+    <br><a href="/">Back to Home</a>
+</body>
+</html>
